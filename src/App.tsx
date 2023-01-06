@@ -1,34 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+
+import { FaTemperatureLow } from "react-icons/fa";
+import { BiSearchAlt } from "react-icons/bi";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [search, setSearch] = useState("");
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="App flex text-white bg-cover bg-[url('./media/nublado.jpg')] h-screen">
+      <div className="w-1/4 border- justify-center rounded-t-3xl rounded-b-3xl backdrop-blur-sm border-r-2">
+        <div className="flex items-center mx-auto w-5/6 justify-center mt-6 hover:border-b-2">
+          <FaTemperatureLow size={20} />
+          <input
+            className="bg-transparent text-lg text-white border-b-neutral-900 text-center outline-none"
+            type="text"
+            placeholder="Cidade"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <button onClick={() => alert("Buscando: " + search)}>
+            <BiSearchAlt size={25} />
+          </button>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div className="w-3/4">
+        <h1 className="text-3xl mt-2 w-full pl-4 font-bold text-white">
+          Dev Weather
+        </h1>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
