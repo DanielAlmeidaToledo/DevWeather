@@ -1,13 +1,21 @@
 import { useState } from "react";
+
 import axios from "axios";
 import { AxiosResponse } from "axios";
 
 import { FaTemperatureLow } from "react-icons/fa";
 import { BiSearchAlt } from "react-icons/bi";
 
+import Footer from "./Footer";
+
 function App() {
   const [search, setSearch] = useState("");
-  const [value, setValue] = useState({ name: "" });
+  const [value, setValue] = useState({
+    main: { temp: 0, temp_max: 0, temp_min: 0, humidity: 0 },
+    name: "",
+    weather: [{ main: "", description: "", icon: "" }],
+    sys: { country: "" },
+  });
 
   const url = `http://api.openweathermap.org/data/2.5/weather?q=${search},br&APPID=698f0ecd8acf094e8fc5b437abda98ea`;
 
@@ -19,8 +27,10 @@ function App() {
     setSearch("");
   };
 
+  const kelvin = 273.15;
+
   return (
-    <div className="App flex text-white bg-cover bg-[url('./media/nublado2.jpg')] h-screen">
+    <div className="App flex text-white bg-cover h-screen bg-[url('./media/default.jpg')]">
       <div className="w-1/4 border- justify-center rounded-t-3xl rounded-b-3xl backdrop-blur-sm border-r-2">
         <div className="flex items-center mx-auto w-5/6 justify-center mt-6  border-b-2 border-b-transparent hover:border-b-white">
           <FaTemperatureLow size={20} />
@@ -35,18 +45,47 @@ function App() {
             <BiSearchAlt size={25} />
           </button>
         </div>
-        <div className="flex justify-center mt-20">
-          <h3 className="text-6xl">graus°</h3>
-        </div>
+        {value.main.temp !== 0 && (
+          <div className="flex flex-wrap justify-center mt-20">
+            <h3 className="text-6xl w-full text-center">
+              {Math.trunc(value.main.temp - kelvin)}
+              <span>&#x2103;</span>
+            </h3>
+            <div className="pt-5">
+              <p className="w-full pt-2">
+                Máxima: {Math.trunc(value.main.temp_max - kelvin)}
+                <span>&#x2103;</span>
+              </p>
+              <p className="w-full pt-1">
+                Mínima: {Math.trunc(value.main.temp_min - kelvin)}
+                <span>&#x2103;</span>
+              </p>
+            </div>
+          </div>
+        )}
       </div>
       <div className="w-3/4">
-        <h1 className="text-3xl mt-2 w-full pl-4 font-bold text-white">
+        <h1 className="text-3xl text-end mt-2 w-full pr-4 font-bold text-white">
           Dev Weather
         </h1>
-        <div>
-          <h3 className="text-center text-6xl">{value.name}</h3>
-        </div>
+        {value.name !== "" && (
+          <div className="mt-10">
+            <h3 className="text-6xl text-center">
+              {value.name}, {value.sys.country}
+            </h3>
+            <div className="mt-14 ml-36">
+              <p className="text-5xl py-5">{value.weather[0].main}</p>
+              <p className="text-3xl">{value.weather[0].description}</p>
+              <img
+                src={`http://openweathermap.org/img/wn/${value.weather[0].icon}.png`}
+                alt="Icon Weather"
+                className="mt-5"
+              />
+            </div>
+          </div>
+        )}
       </div>
+      <Footer />
     </div>
   );
 }
