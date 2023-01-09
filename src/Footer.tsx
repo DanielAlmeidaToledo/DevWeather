@@ -5,7 +5,7 @@ const Footer = () => {
       <a
         href="https://www.linkedin.com/in/danielalmeidadetoledo/"
         target={"_blank"}
-        className="pl-1 font-bold hover:underline"
+        className="pl-1 font-bold italic hover:underline"
       >
         Daniel Toledo
       </a>

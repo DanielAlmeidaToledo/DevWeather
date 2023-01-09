@@ -5,6 +5,7 @@ import { AxiosResponse } from "axios";
 
 import { FaTemperatureLow } from "react-icons/fa";
 import { BiSearchAlt } from "react-icons/bi";
+import dwLogo from "./media/dwLogo.png";
 
 import Footer from "./Footer";
 
@@ -46,18 +47,18 @@ function App() {
           </button>
         </div>
         {value.main.temp !== 0 && (
-          <div className="flex flex-wrap justify-center mt-20">
-            <h3 className="text-6xl w-full text-center">
+          <div className="flex flex-wrap h-96 my-20 items-center justify-center">
+            <h3 className="text-6xl w-full text-center pt-20">
               {Math.trunc(value.main.temp - kelvin)}
               <span>&#x2103;</span>
             </h3>
-            <div className="pt-5">
-              <p className="w-full pt-2">
-                Máxima: {Math.trunc(value.main.temp_max - kelvin)}
+            <div className="text-2xl pb-20">
+              <p className="w-full pt-3">
+                Max: {Math.trunc(value.main.temp_max - kelvin)}
                 <span>&#x2103;</span>
               </p>
-              <p className="w-full pt-1">
-                Mínima: {Math.trunc(value.main.temp_min - kelvin)}
+              <p className="w-full pt-3">
+                Min: {Math.trunc(value.main.temp_min - kelvin)}
                 <span>&#x2103;</span>
               </p>
             </div>
@@ -65,22 +66,31 @@ function App() {
         )}
       </div>
       <div className="w-3/4">
-        <h1 className="text-3xl text-end mt-2 w-full pr-4 font-bold text-white">
-          Dev Weather
-        </h1>
+        <div className="w-full mt-2 flex justify-end items-center py-2">
+          <img className="w-10" src={dwLogo} alt="Logo" />
+          <h1 className="text-4xl italic px-4 font-bold text-white">
+            Dev Weather
+          </h1>
+        </div>
         {value.name !== "" && (
           <div className="mt-10">
             <h3 className="text-6xl text-center">
               {value.name}, {value.sys.country}
             </h3>
-            <div className="mt-14 ml-36">
-              <p className="text-5xl py-5">{value.weather[0].main}</p>
-              <p className="text-3xl">{value.weather[0].description}</p>
-              <img
-                src={`http://openweathermap.org/img/wn/${value.weather[0].icon}.png`}
-                alt="Icon Weather"
-                className="mt-5"
-              />
+            <div className="mt-20 mx-36 flex justify-around">
+              <div>
+                <p className="text-5xl py-5">{value.weather[0].main}</p>
+                <p className="text-3xl">{value.weather[0].description}</p>
+                <img
+                  src={`http://openweathermap.org/img/wn/${value.weather[0].icon}.png`}
+                  alt="Icon Weather"
+                  className="mt-5"
+                />
+              </div>
+              <div>
+                <p className="text-5xl py-5">Humidity</p>
+                <p className="text-3xl">{value.main.humidity}%</p>
+              </div>
             </div>
           </div>
         )}
