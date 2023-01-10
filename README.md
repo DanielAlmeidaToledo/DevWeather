@@ -1,6 +1,6 @@
 # Dev Weather 🌥️
- 
-[dwVideo.webm](https://user-images.githubusercontent.com/96501443/211591357-5a078359-a34f-4554-a994-172dddf36cd5.webm)
+
+https://user-images.githubusercontent.com/96501443/211592637-a575bf63-01a8-4c24-b8f8-ced3bde29a8f.mp4
 
 Projeto desenvolvido em React.JS e Typescript para consultar o clima das cidades do Brasil.
 
