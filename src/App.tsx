@@ -24,7 +24,6 @@ function App() {
     await axios.get(url).then((response: AxiosResponse) => {
       setValue(response.data);
     });
-    console.log(value);
     setSearch("");
   };
 
