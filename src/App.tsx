@@ -9,14 +9,16 @@ import dwLogo from "./media/dwLogo.png";
 
 import Footer from "./Footer";
 
+type Props = {
+  main: { temp: number; temp_max: number; temp_min: number; humidity: number };
+  name: string;
+  weather: [{ main: string; description: string; icon: string }];
+  sys: { country: string };
+};
+
 function App() {
   const [search, setSearch] = useState("");
-  const [value, setValue] = useState({
-    main: { temp: 0, temp_max: 0, temp_min: 0, humidity: 0 },
-    name: "",
-    weather: [{ main: "", description: "", icon: "" }],
-    sys: { country: "" },
-  });
+  const [value, setValue] = useState<Props>({} as Props);
 
   const url = `http://api.openweathermap.org/data/2.5/weather?q=${search},br&APPID=698f0ecd8acf094e8fc5b437abda98ea`;
 
@@ -45,7 +47,7 @@ function App() {
             <BiSearchAlt size={25} />
           </button>
         </div>
-        {value.main.temp !== 0 && (
+        {value?.main?.temp !== undefined && (
           <div className="flex flex-wrap h-96 my-20 items-center justify-center">
             <h3 className="text-6xl w-full text-center pt-20">
               {Math.trunc(value.main.temp - kelvin)}
@@ -71,7 +73,7 @@ function App() {
             Dev Weather
           </h1>
         </div>
-        {value.name !== "" && (
+        {value?.name !== undefined && (
           <div className="mt-10">
             <h3 className="text-6xl text-center">
               {value.name}, {value.sys.country}
