@@ -8,6 +8,7 @@ import { BiSearchAlt } from "react-icons/bi";
 import dwLogo from "./media/dwLogo.png";
 
 import Footer from "./Footer";
+import clsx from "clsx";
 
 type Props = {
   main: { temp: number; temp_max: number; temp_min: number; humidity: number };
@@ -19,12 +20,14 @@ type Props = {
 function App() {
   const [search, setSearch] = useState("");
   const [value, setValue] = useState<Props>({} as Props);
+  const [background, setBackground] = useState("");
 
   const url = `http://api.openweathermap.org/data/2.5/weather?q=${search},br&APPID=698f0ecd8acf094e8fc5b437abda98ea`;
 
   const handleWeather = async () => {
     await axios.get(url).then((response: AxiosResponse) => {
       setValue(response.data);
+      setBackground(response.data.weather[0].main);
     });
     setSearch("");
   };
@@ -32,7 +35,17 @@ function App() {
   const kelvin = 273.15;
 
   return (
-    <div className="App flex text-white bg-cover h-screen bg-[url('./media/default.jpg')]">
+    <div
+      className={clsx("App flex text-white bg-cover h-screen", {
+        "bg-[url('./media/clouds.jpg')]":
+          background === "" || background === "Clouds",
+        "bg-[url('./media/thunderstorm.jpg')]": background === "Thunderstorm",
+        "bg-[url('./media/Drizzle.jpg')]": background === "Drizzle",
+        "bg-[url('./media/Rain.jpg')]": background === "Rain",
+        "bg-[url('./media/Snow.jpg')]": background === "Snow",
+        "bg-[url('./media/Clear.jpg')]": background === "Clear",
+      })}
+    >
       <div className="w-1/4 border- justify-center rounded-t-3xl rounded-b-3xl backdrop-blur-sm border-r-2">
         <div className="flex items-center mx-auto w-5/6 justify-center mt-6  border-b-2 border-b-transparent hover:border-b-white">
           <FaTemperatureLow size={20} />

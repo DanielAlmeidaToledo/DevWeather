@@ -11,6 +11,7 @@ Projeto desenvolvido em React.JS e Typescript para consultar o clima das cidades
 - Tailwind CSS
 - Axios
 - PostCSS
+- CLSX
 - React Icons
 - Vite
 
