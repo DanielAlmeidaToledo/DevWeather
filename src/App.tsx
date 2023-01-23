@@ -36,7 +36,7 @@ function App() {
 
   return (
     <div
-      className={clsx("App flex text-white bg-cover h-screen", {
+      className={clsx("App xl:flex text-white bg-cover h-screen", {
         "bg-[url('./media/clouds.jpg')]":
           background === "" || background === "Clouds",
         "bg-[url('./media/thunderstorm.jpg')]": background === "Thunderstorm",
@@ -46,7 +46,7 @@ function App() {
         "bg-[url('./media/Clear.jpg')]": background === "Clear",
       })}
     >
-      <div className="w-1/4 border- justify-center rounded-t-3xl rounded-b-3xl backdrop-blur-sm border-r-2">
+      <div className="w-11/12 h-2/6 justify-center rounded-t-3xl rounded-b-3xl backdrop-blur-sm border-2 xl:border-0 xl:border-r-2 mx-auto xl:w-1/4 xl:h-full">
         <div className="flex items-center mx-auto w-5/6 justify-center mt-6  border-b-2 border-b-transparent hover:border-b-white">
           <FaTemperatureLow size={20} />
           <input
@@ -61,17 +61,17 @@ function App() {
           </button>
         </div>
         {value?.main?.temp !== undefined && (
-          <div className="flex flex-wrap h-96 my-20 items-center justify-center">
-            <h3 className="text-6xl w-full text-center pt-20">
+          <div className="flex xl:flex-wrap items-center justify-center h-40 mt-6 xl:h-96 xl:my-20">
+            <h3 className="text-6xl w-full text-center xl:pt-20">
               {Math.trunc(value.main.temp - kelvin)}
               <span>&#x2103;</span>
             </h3>
-            <div className="text-2xl pb-20">
-              <p className="w-full pt-3">
+            <div className="text-2xl xl:pb-20 flex flex-wrap xl:flex-nowrap items-center xl:block">
+              <p className="w-full xl:pt-3">
                 Max: {Math.trunc(value.main.temp_max - kelvin)}
                 <span>&#x2103;</span>
               </p>
-              <p className="w-full pt-3">
+              <p className="w-full xl:pt-3">
                 Min: {Math.trunc(value.main.temp_min - kelvin)}
                 <span>&#x2103;</span>
               </p>
@@ -80,30 +80,34 @@ function App() {
         )}
       </div>
       <div className="w-3/4">
-        <div className="w-full mt-2 flex justify-end items-center py-2">
-          <img className="w-10" src={dwLogo} alt="Logo" />
-          <h1 className="text-4xl italic px-4 font-bold text-white">
+        <div className="w-screen xl:w-full mt-2 flex xl:justify-end justify-center items-center py-2">
+          <img className="w-8 xl:w-10" src={dwLogo} alt="Logo" />
+          <h1 className="text-2xl xl:text-4xl italic px-4 font-bold text-white">
             Dev Weather
           </h1>
         </div>
         {value?.name !== undefined && (
-          <div className="mt-10">
-            <h3 className="text-6xl text-center">
+          <div className="mt-10 xl:w-auto w-screen">
+            <h3 className="w-screen xl:w-auto text-6xl text-center">
               {value.name}, {value.sys.country}
             </h3>
-            <div className="mt-20 mx-36 flex justify-around">
+            <div className="w-5/12 mx-auto text-center mt-5 xl:mt-20 xl:text-start xl:flex xl:justify-around xl:w-3/4">
               <div>
-                <p className="text-5xl py-5">{value.weather[0].main}</p>
-                <p className="text-3xl">{value.weather[0].description}</p>
+                <p className="text-4xl xl:text-5xl py-5">
+                  {value.weather[0].main}
+                </p>
+                <p className="text-2xl xl:text-3xl">
+                  {value.weather[0].description}
+                </p>
                 <img
                   src={`http://openweathermap.org/img/wn/${value.weather[0].icon}.png`}
                   alt="Icon Weather"
-                  className="mt-5"
+                  className="mt-5 mx-auto"
                 />
               </div>
               <div>
-                <p className="text-5xl py-5">Humidity</p>
-                <p className="text-3xl">{value.main.humidity}%</p>
+                <p className="text-4xl xl:text-5xl py-5">Humidity</p>
+                <p className="text-2xl xl:text-3xl">{value.main.humidity}%</p>
               </div>
             </div>
           </div>
