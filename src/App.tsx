@@ -44,6 +44,7 @@ function App() {
         "bg-[url('./media/Rain.jpg')]": background === "Rain",
         "bg-[url('./media/Snow.jpg')]": background === "Snow",
         "bg-[url('./media/Clear.jpg')]": background === "Clear",
+        "bg-[url('./media/Mist.jpg')]": background === "Mist",
       })}
     >
       <div className="w-11/12 h-2/6 justify-center rounded-t-3xl rounded-b-3xl backdrop-blur-sm border-2 xl:border-0 xl:border-r-2 mx-auto xl:w-1/4 xl:h-full">
