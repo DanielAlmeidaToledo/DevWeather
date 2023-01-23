@@ -1,6 +1,6 @@
 # Dev Weather 🌥️
 
-https://user-images.githubusercontent.com/96501443/211592637-a575bf63-01a8-4c24-b8f8-ced3bde29a8f.mp4
+https://user-images.githubusercontent.com/96501443/214118544-4d01093e-4200-46e2-9284-d6b9125d4080.mp4
 
 Projeto desenvolvido em React.JS e Typescript para consultar o clima das cidades do Brasil.
 
@@ -8,8 +8,8 @@ Projeto desenvolvido em React.JS e Typescript para consultar o clima das cidades
 
 - React.JS
 - Typescript
-- Tailwind CSS
 - Axios
+- Tailwind CSS
 - PostCSS
 - CLSX
 - React Icons
@@ -17,13 +17,13 @@ Projeto desenvolvido em React.JS e Typescript para consultar o clima das cidades
 
 ## 🎯 Objetivo:
 
-Projeto desenvolvido em React.JS e Typescript para consultar o clima das cidades do Brasil com a finalidade de trabalhar com API's utilizando o Axios.
+Projeto desenvolvido em React.JS e Typescript para consultar o clima das cidades do Brasil com a finalidade de trabalhar com API's utilizando o Axios. O plano de fundo (Background) é dinâmico, ou seja, altera de acordo com o clima da cidade.
 
 ## 🖥️ Telas:
 
-![image](https://user-images.githubusercontent.com/96501443/211591946-7da03083-3bcb-427e-9bc2-4af4c5a94285.png)
-![image](https://user-images.githubusercontent.com/96501443/211591889-96e962ff-fb84-4753-8554-870e899aa5c8.png)
-![image](https://user-images.githubusercontent.com/96501443/211592057-730f453b-4d23-4c7a-8a36-7af3756b86aa.png)
+![image](https://user-images.githubusercontent.com/96501443/214118877-d0f2d629-2f47-49b2-951b-c12a76a9ee41.png)
+![image](https://user-images.githubusercontent.com/96501443/214118917-b3bd9c79-5a55-4b4b-9b4a-1cb06b7776d0.png)
+![image](https://user-images.githubusercontent.com/96501443/214118987-8a323d0e-666c-4e94-ae54-006489f9be9b.png)
 
 ### 📞 Contato:
 
