@@ -36,7 +36,7 @@ function App() {
 
   return (
     <div
-      className={clsx("App xl:flex text-white bg-cover h-screen", {
+      className={clsx("App xl:flex text-white pb-8 xl:pb-0 bg-cover h-screen", {
         "bg-[url('./media/clouds.jpg')]":
           background === "" || background === "Clouds",
         "bg-[url('./media/thunderstorm.jpg')]": background === "Thunderstorm",
@@ -91,11 +91,9 @@ function App() {
             <h3 className="w-screen xl:w-auto text-6xl text-center">
               {value.name}, {value.sys.country}
             </h3>
-            <div className="w-5/12 mx-auto text-center mt-5 xl:mt-20 xl:text-start xl:flex xl:justify-around xl:w-3/4">
+            <div className="w-5/12 mx-auto text-center mt-5 xl:mt-20 xl:text-start xl:flex xl:justify-around xl:w-3/4 xl:py-10">
               <div>
-                <p className="text-4xl xl:text-5xl py-5">
-                  {value.weather[0].main}
-                </p>
+                <p className="text-4xl xl:text-5xl">{value.weather[0].main}</p>
                 <p className="text-2xl xl:text-3xl">
                   {value.weather[0].description}
                 </p>
@@ -106,7 +104,7 @@ function App() {
                 />
               </div>
               <div>
-                <p className="text-4xl xl:text-5xl py-5">Humidity</p>
+                <p className="text-4xl xl:text-5xl py-3">Humidity</p>
                 <p className="text-2xl xl:text-3xl">{value.main.humidity}%</p>
               </div>
             </div>
